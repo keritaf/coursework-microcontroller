@@ -44,3 +44,4 @@ set_global_assignment -name PROJECT_CREATION_TIME_DATE "09:47:52  MARCH 14, 2013
 set_global_assignment -name LAST_QUARTUS_VERSION 9.1
 set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_blast_fpga
 set_global_assignment -name BDF_FILE microcontroller.bdf
+set_global_assignment -name BDF_FILE "blocks/block-rom.bdf"
