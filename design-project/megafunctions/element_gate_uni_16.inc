@@ -13,14 +13,12 @@
 --applicable agreement for further details.
 
 
-FUNCTION lpm_ram_dq_8x4096 
+FUNCTION element_gate_uni_16 
 (
-	address[11..0],
-	clock,
-	data[7..0],
-	wren
+	data[15..0],
+	enabledt
 )
 
 RETURNS (
-	q[7..0]
+	tridata[15..0]
 );

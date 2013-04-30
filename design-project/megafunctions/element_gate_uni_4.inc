@@ -13,12 +13,12 @@
 --applicable agreement for further details.
 
 
-FUNCTION lpm_latch_8 
+FUNCTION element_gate_uni_4 
 (
-	data[7..0],
-	gate
+	data[3..0],
+	enabledt
 )
 
 RETURNS (
-	q[7..0]
+	tridata[3..0]
 );

@@ -1,12 +1,12 @@
--- megafunction wizard: %LPM_LATCH%
+-- megafunction wizard: %LPM_BUSTRI%
 -- GENERATION: STANDARD
 -- VERSION: WM1.0
--- MODULE: lpm_latch 
+-- MODULE: lpm_bustri 
 
 -- ============================================================
--- File Name: lpm_latch_8.tdf
+-- File Name: element_gate_bi_8.tdf
 -- Megafunction Name(s):
--- 			lpm_latch
+-- 			lpm_bustri
 --
 -- Simulation Library Files(s):
 -- 			lpm
@@ -32,29 +32,33 @@
 --Altera or its authorized distributors.  Please refer to the 
 --applicable agreement for further details.
 
-INCLUDE "lpm_latch.inc";
+INCLUDE "lpm_bustri.inc";
 
 
 
-SUBDESIGN lpm_latch_8
+SUBDESIGN element_gate_bi_8
 (
 	data[7..0]	 : INPUT;
-	gate	 : INPUT;
-	q[7..0]	 : OUTPUT;
+	enabledt	 : INPUT;
+	enabletr	 : INPUT;
+	result[7..0]	 : OUTPUT;
+	tridata[7..0]	 : BIDIR;
 )
 
 VARIABLE
 
-	lpm_latch_component : lpm_latch WITH (
-			LPM_TYPE = "LPM_LATCH",
+	lpm_bustri_component : lpm_bustri WITH (
+			LPM_TYPE = "LPM_BUSTRI",
 			LPM_WIDTH = 8
 			);
 
 BEGIN
 
-	q[7..0] = lpm_latch_component.q[7..0];
-	lpm_latch_component.data[7..0] = data[7..0];
-	lpm_latch_component.gate = gate;
+	result[7..0] = lpm_bustri_component.result[7..0];
+	tridata[7..0] = lpm_bustri_component.tridata[7..0];
+	lpm_bustri_component.enabletr = enabletr;
+	lpm_bustri_component.enabledt = enabledt;
+	lpm_bustri_component.data[7..0] = data[7..0];
 END;
 
 
@@ -62,24 +66,27 @@ END;
 -- ============================================================
 -- CNX file retrieval info
 -- ============================================================
+-- Retrieval info: PRIVATE: BiDir NUMERIC "1"
 -- Retrieval info: PRIVATE: INTENDED_DEVICE_FAMILY STRING "Stratix III"
 -- Retrieval info: PRIVATE: SYNTH_WRAPPER_GEN_POSTFIX STRING "1"
--- Retrieval info: PRIVATE: aclr NUMERIC "0"
--- Retrieval info: PRIVATE: aset NUMERIC "0"
 -- Retrieval info: PRIVATE: nBit NUMERIC "8"
--- Retrieval info: CONSTANT: LPM_TYPE STRING "LPM_LATCH"
+-- Retrieval info: CONSTANT: LPM_TYPE STRING "LPM_BUSTRI"
 -- Retrieval info: CONSTANT: LPM_WIDTH NUMERIC "8"
 -- Retrieval info: USED_PORT: data 0 0 8 0 INPUT NODEFVAL data[7..0]
--- Retrieval info: USED_PORT: gate 0 0 0 0 INPUT NODEFVAL gate
--- Retrieval info: USED_PORT: q 0 0 8 0 OUTPUT NODEFVAL q[7..0]
+-- Retrieval info: USED_PORT: enabledt 0 0 0 0 INPUT NODEFVAL enabledt
+-- Retrieval info: USED_PORT: enabletr 0 0 0 0 INPUT NODEFVAL enabletr
+-- Retrieval info: USED_PORT: result 0 0 8 0 OUTPUT NODEFVAL result[7..0]
+-- Retrieval info: USED_PORT: tridata 0 0 8 0 BIDIR NODEFVAL tridata[7..0]
+-- Retrieval info: CONNECT: tridata 0 0 8 0 @tridata 0 0 8 0
 -- Retrieval info: CONNECT: @data 0 0 8 0 data 0 0 8 0
--- Retrieval info: CONNECT: q 0 0 8 0 @q 0 0 8 0
--- Retrieval info: CONNECT: @gate 0 0 0 0 gate 0 0 0 0
+-- Retrieval info: CONNECT: @enabledt 0 0 0 0 enabledt 0 0 0 0
+-- Retrieval info: CONNECT: result 0 0 8 0 @result 0 0 8 0
+-- Retrieval info: CONNECT: @enabletr 0 0 0 0 enabletr 0 0 0 0
 -- Retrieval info: LIBRARY: lpm lpm.lpm_components.all
--- Retrieval info: GEN_FILE: TYPE_NORMAL lpm_latch_8.tdf TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL lpm_latch_8.inc TRUE
--- Retrieval info: GEN_FILE: TYPE_NORMAL lpm_latch_8.cmp FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL lpm_latch_8.bsf TRUE FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL lpm_latch_8_inst.tdf FALSE
--- Retrieval info: GEN_FILE: TYPE_NORMAL lpm_latch_8_syn.v TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL element_gate_bi_8.tdf TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL element_gate_bi_8.inc TRUE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL element_gate_bi_8.cmp FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL element_gate_bi_8.bsf TRUE FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL element_gate_bi_8_inst.tdf FALSE
+-- Retrieval info: GEN_FILE: TYPE_NORMAL element_gate_bi_8_syn.v TRUE
 -- Retrieval info: LIB_FILE: lpm
