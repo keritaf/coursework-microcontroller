@@ -52,7 +52,7 @@ set_global_assignment -name USE_TIMEQUEST_TIMING_ANALYZER OFF
 # Analysis & Synthesis Assignments
 # ================================
 set_global_assignment -name FAMILY "Stratix III"
-set_global_assignment -name TOP_LEVEL_ENTITY "block-stage-execution"
+set_global_assignment -name TOP_LEVEL_ENTITY "block-data-cache-line"
 
 # Fitter Assignments
 # ==================
@@ -72,7 +72,7 @@ set_global_assignment -name RAPID_RECOMPILE_MODE COMPATIBLE_PLACEMENT_AND_ROUTIN
 
 	# Analysis & Synthesis Assignments
 	# ================================
-	set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_blast_fpga
+set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_blast_fpga
 
 # end EDA_TOOL_SETTINGS(eda_blast_fpga)
 # -------------------------------------
@@ -82,7 +82,7 @@ set_global_assignment -name RAPID_RECOMPILE_MODE COMPATIBLE_PLACEMENT_AND_ROUTIN
 
 	# Classic Timing Assignments
 	# ==========================
-	set_global_assignment -name FMAX_REQUIREMENT "20 ns" -section_id main_clk
+set_global_assignment -name FMAX_REQUIREMENT "20 ns" -section_id main_clk
 
 # end CLOCK(main_clk)
 # -------------------
@@ -92,7 +92,7 @@ set_global_assignment -name RAPID_RECOMPILE_MODE COMPATIBLE_PLACEMENT_AND_ROUTIN
 
 	# Classic Timing Assignments
 	# ==========================
-	set_global_assignment -name FMAX_REQUIREMENT "20 ns" -section_id ram_clk
+set_global_assignment -name FMAX_REQUIREMENT "20 ns" -section_id ram_clk
 
 # end CLOCK(ram_clk)
 # ------------------
@@ -147,8 +147,8 @@ set_global_assignment -name RAPID_RECOMPILE_MODE COMPATIBLE_PLACEMENT_AND_ROUTIN
 
 		# LogicLock Region Assignments
 		# ============================
-		set_global_assignment -name LL_ROOT_REGION ON -entity microcontroller -section_id "Root Region"
-		set_global_assignment -name LL_MEMBER_STATE LOCKED -entity microcontroller -section_id "Root Region"
+set_global_assignment -name LL_ROOT_REGION ON -entity microcontroller -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -entity microcontroller -section_id "Root Region"
 
 	# end LOGICLOCK_REGION(Root Region)
 	# ---------------------------------
@@ -156,14 +156,21 @@ set_global_assignment -name RAPID_RECOMPILE_MODE COMPATIBLE_PLACEMENT_AND_ROUTIN
 # end ENTITY(microcontroller)
 # ---------------------------
 set_global_assignment -name VECTOR_COMPARE_TRIGGER_MODE INPUT_EDGE
+set_global_assignment -name SEARCH_PATH blocks
+set_global_assignment -name SEARCH_PATH megafunctions
+set_global_assignment -name SEARCH_PATH "test-blocks"
+set_global_assignment -name USE_CONFIGURATION_DEVICE OFF
 set_global_assignment -name BDF_FILE microcontroller.bdf
 set_global_assignment -name BDF_FILE "blocks/block-bus-arbiter-unit.bdf"
+set_global_assignment -name BDF_FILE "blocks/block-cache-entry.bdf"
+set_global_assignment -name BDF_FILE "blocks/block-data-cache-line.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-instruction-cache-loader.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-operation-executor.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-operation-variant-and.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-operation-variant-notz.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-operation-variant-srl.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-operation-variant-sub.bdf"
+set_global_assignment -name BDF_FILE "blocks/block-operation-variant-zcommandselector.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-ram.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-rom.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-register-16.bdf"
@@ -174,26 +181,32 @@ set_global_assignment -name BDF_FILE "test-blocks/test-block-bus-arbiter-unit.bd
 set_global_assignment -name BDF_FILE "test-blocks/test-block-instruction-cache-loader.bdf"
 set_global_assignment -name HEX_FILE "memory-data/memory-rom.hex"
 set_global_assignment -name HEX_FILE "memory-data/memory-ram.hex"
+set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-cache-entry.vwf"
 set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-operation-variant-srl.vwf"
 set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-rom.vwf"
 set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-ram.vwf"
 set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-register-16.vwf"
 set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-register-file.vwf"
 set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-stack.vwf"
+set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-stage-execution.vwf"
 set_global_assignment -name VECTOR_WAVEFORM_FILE "test-waveforms/test-block-bus-arbiter-unit.vwf"
 set_global_assignment -name VECTOR_WAVEFORM_FILE "test-waveforms/test-block-instruction-cache-loader.vwf"
 set_global_assignment -name QIP_FILE megafunctions/element_add_16.qip
 set_global_assignment -name QIP_FILE megafunctions/element_and_16x2.qip
 set_global_assignment -name QIP_FILE megafunctions/element_compare_eq_4x2.qip
+set_global_assignment -name QIP_FILE megafunctions/element_compare_eq_11.qip
 set_global_assignment -name QIP_FILE megafunctions/element_compare_eq_16.qip
 set_global_assignment -name QIP_FILE megafunctions/element_const_0x14.qip
+set_global_assignment -name QIP_FILE megafunctions/element_counter_0to7.qip
 set_global_assignment -name QIP_FILE megafunctions/element_counter_0to9.qip
 set_global_assignment -name QIP_FILE megafunctions/element_decode_2to4.qip
 set_global_assignment -name QIP_FILE megafunctions/element_decode_4to16.qip
 set_global_assignment -name QIP_FILE megafunctions/element_ff_d_1.qip
 set_global_assignment -name QIP_FILE megafunctions/element_ff_d_2.qip
+set_global_assignment -name QIP_FILE megafunctions/element_ff_3.qip
 set_global_assignment -name QIP_FILE megafunctions/element_ff_d_4.qip
 set_global_assignment -name QIP_FILE megafunctions/element_ff_d_8.qip
+set_global_assignment -name QIP_FILE megafunctions/element_ff_d_11.qip
 set_global_assignment -name QIP_FILE megafunctions/element_ff_d_12.qip
 set_global_assignment -name QIP_FILE megafunctions/element_ff_d_16.qip
 set_global_assignment -name QIP_FILE megafunctions/element_gate_bi_8.qip
@@ -212,15 +225,22 @@ set_global_assignment -name QIP_FILE megafunctions/element_mux_8x2.qip
 set_global_assignment -name QIP_FILE megafunctions/element_mux_4x2.qip
 set_global_assignment -name QIP_FILE megafunctions/element_mux_2x2.qip
 set_global_assignment -name QIP_FILE megafunctions/element_mux_1x2.qip
+set_global_assignment -name QIP_FILE megafunctions/element_mux_1x6.qip
+set_global_assignment -name QIP_FILE megafunctions/element_mux_16x6.qip
 set_global_assignment -name QIP_FILE megafunctions/element_sub_16.qip
-set_global_assignment -name QIP_FILE megafunctions/element_mux_16x5.qip
-set_global_assignment -name QIP_FILE megafunctions/element_mux_1x5.qip
+set_global_assignment -name QIP_FILE megafunctions/element_compare_eq_3.qip
+set_global_assignment -name QIP_FILE megafunctions/element_compare_gte_3.qip
 set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
 set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL COMPATIBLE_PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name QIP_FILE megafunctions/element_ff_3.qip
-set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-stage-execution.vwf"
-set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE "waveforms/block-stage-execution.vwf"
+set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-data-cache-line.vwf"
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE "waveforms/block-data-cache-line.vwf"
+set_global_assignment -name OPTIMIZE_HOLD_TIMING "ALL PATHS"
+set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING ON
+set_global_assignment -name ENABLE_SIGNALTAP OFF
+set_global_assignment -name ENABLE_DA_RULE "C101, C102, C103, C104, C105, C106, R101, R102, R103, R104, R105, T101, T102, A101, A102, A103, A104, A105, A106, A107, A108, S101, S102, S103, S104, D101, D102, D103, M101, M102, M103, M104, M105"
+set_global_assignment -name SYNTH_TIMING_DRIVEN_SYNTHESIS ON
+set_global_assignment -name ADV_NETLIST_OPT_SYNTH_WYSIWYG_REMAP ON
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
