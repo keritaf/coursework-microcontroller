@@ -150,7 +150,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 1264 152 1440 168)
+	(rect 1280 152 1456 168)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "OUT1[15..0]" (rect 90 0 150 12)(font "Arial" ))
 	(pt 0 8)
@@ -166,9 +166,25 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 1264 248 1440 264)
+	(rect 1280 248 1456 264)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "OUT2[15..0]" (rect 90 0 150 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8)(line_width 1))
+		(line (pt 52 4)(pt 78 4)(line_width 1))
+		(line (pt 52 12)(pt 78 12)(line_width 1))
+		(line (pt 52 12)(pt 52 4)(line_width 1))
+		(line (pt 78 4)(pt 82 8)(line_width 1))
+		(line (pt 82 8)(pt 78 12)(line_width 1))
+		(line (pt 78 12)(pt 82 8)(line_width 1))
+	)
+)
+(pin
+	(output)
+	(rect 1280 56 1456 72)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "ZF" (rect 90 0 104 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8)(line_width 1))
@@ -1305,10 +1321,6 @@ applicable agreement for further details.
 	(pt 752 664)
 )
 (connector
-	(pt 1248 64)
-	(pt 1264 64)
-)
-(connector
 	(pt 1264 64)
 	(pt 1264 -8)
 )
@@ -1435,11 +1447,6 @@ applicable agreement for further details.
 	(pt 1104 152)
 )
 (connector
-	(pt 1248 160)
-	(pt 1264 160)
-	(bus)
-)
-(connector
 	(pt 912 136)
 	(pt 1104 136)
 	(bus)
@@ -1486,11 +1493,6 @@ applicable agreement for further details.
 (connector
 	(pt 1088 264)
 	(pt 1088 296)
-)
-(connector
-	(pt 1248 256)
-	(pt 1264 256)
-	(bus)
 )
 (connector
 	(pt 720 480)
@@ -1696,6 +1698,24 @@ applicable agreement for further details.
 	(pt 352 408)
 	(pt 448 408)
 )
+(connector
+	(pt 1248 160)
+	(pt 1280 160)
+	(bus)
+)
+(connector
+	(pt 1248 256)
+	(pt 1280 256)
+	(bus)
+)
+(connector
+	(pt 1248 64)
+	(pt 1264 64)
+)
+(connector
+	(pt 1264 64)
+	(pt 1280 64)
+)
 (junction (pt 736 496))
 (junction (pt 752 608))
 (junction (pt 752 656))
@@ -1722,3 +1742,4 @@ applicable agreement for further details.
 (junction (pt 1088 168))
 (junction (pt 1072 152))
 (junction (pt 352 408))
+(junction (pt 1264 64))

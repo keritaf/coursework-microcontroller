@@ -21,7 +21,7 @@ applicable agreement for further details.
 (header "symbol" (version "1.1"))
 (symbol
 	(rect 16 16 288 144)
-	(text "block-instruction-cache-loader" (rect 5 0 178 14)(font "Arial" (font_size 8)))
+	(text "block-stage-instruction-fetch" (rect 5 0 169 14)(font "Arial" (font_size 8)))
 	(text "inst" (rect 8 112 25 124)(font "Arial" ))
 	(port
 		(pt 0 32)
@@ -40,8 +40,8 @@ applicable agreement for further details.
 	(port
 		(pt 0 64)
 		(input)
-		(text "MEM_DATA_IN[7..0]" (rect 0 0 113 14)(font "Arial" (font_size 8)))
-		(text "MEM_DATA_IN[7..0]" (rect 21 59 134 73)(font "Arial" (font_size 8)))
+		(text "ROM_DATA_IN[7..0]" (rect 0 0 114 14)(font "Arial" (font_size 8)))
+		(text "ROM_DATA_IN[7..0]" (rect 21 59 135 73)(font "Arial" (font_size 8)))
 		(line (pt 0 64)(pt 16 64)(line_width 3))
 	)
 	(port
@@ -54,15 +54,15 @@ applicable agreement for further details.
 	(port
 		(pt 272 32)
 		(output)
-		(text "MEM_ADDR[15..0]" (rect 0 0 102 14)(font "Arial" (font_size 8)))
-		(text "MEM_ADDR[15..0]" (rect 149 27 251 41)(font "Arial" (font_size 8)))
+		(text "ROM_ADDR[15..0]" (rect 0 0 103 14)(font "Arial" (font_size 8)))
+		(text "ROM_ADDR[15..0]" (rect 148 27 251 41)(font "Arial" (font_size 8)))
 		(line (pt 272 32)(pt 256 32)(line_width 3))
 	)
 	(port
 		(pt 272 48)
 		(output)
-		(text "DATA_OUT[31..0]" (rect 0 0 101 14)(font "Arial" (font_size 8)))
-		(text "DATA_OUT[31..0]" (rect 150 43 251 57)(font "Arial" (font_size 8)))
+		(text "INSTR[31..0]" (rect 0 0 69 14)(font "Arial" (font_size 8)))
+		(text "INSTR[31..0]" (rect 182 43 251 57)(font "Arial" (font_size 8)))
 		(line (pt 272 48)(pt 256 48)(line_width 3))
 	)
 	(port

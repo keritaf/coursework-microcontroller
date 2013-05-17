@@ -18,7 +18,7 @@
 #
 # Quartus II
 # Version 9.1 Build 222 10/21/2009 SJ Full Version
-# Date created = 21:41:21  May 12, 2013
+# Date created = 00:04:16  May 17, 2013
 #
 # -------------------------------------------------------------------------- #
 #
@@ -52,16 +52,30 @@ set_global_assignment -name USE_TIMEQUEST_TIMING_ANALYZER OFF
 # Analysis & Synthesis Assignments
 # ================================
 set_global_assignment -name FAMILY "Stratix III"
-set_global_assignment -name TOP_LEVEL_ENTITY "block-data-cache"
+set_global_assignment -name SEARCH_PATH blocks
+set_global_assignment -name SEARCH_PATH megafunctions
+set_global_assignment -name SEARCH_PATH "test-blocks"
+set_global_assignment -name ADV_NETLIST_OPT_SYNTH_WYSIWYG_REMAP ON
+set_global_assignment -name TOP_LEVEL_ENTITY microcontroller
 
 # Fitter Assignments
 # ==================
 set_global_assignment -name DEVICE AUTO
+set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING ON
 
 # Simulator Assignments
 # =====================
 set_global_assignment -name SIMULATION_MODE FUNCTIONAL
 set_global_assignment -name SIMULATION_BUS_CHANNEL_GROUPING ON
+set_global_assignment -name VECTOR_COMPARE_TRIGGER_MODE INPUT_EDGE
+
+# Design Assistant Assignments
+# ============================
+set_global_assignment -name ENABLE_DA_RULE "C101, C102, C103, C104, C105, C106, R101, R102, R103, R104, R105, T101, T102, A101, A102, A103, A104, A105, A106, A107, A108, S101, S102, S103, S104, D101, D102, D103, M101, M102, M103, M104, M105"
+
+# SignalTap II Assignments
+# ========================
+set_global_assignment -name ENABLE_SIGNALTAP OFF
 
 # Incremental Compilation Assignments
 # ===================================
@@ -72,7 +86,7 @@ set_global_assignment -name RAPID_RECOMPILE_MODE COMPATIBLE_PLACEMENT_AND_ROUTIN
 
 	# Analysis & Synthesis Assignments
 	# ================================
-set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_blast_fpga
+	set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_blast_fpga
 
 # end EDA_TOOL_SETTINGS(eda_blast_fpga)
 # -------------------------------------
@@ -92,19 +106,13 @@ set_global_assignment -name FMAX_REQUIREMENT "20 ns" -section_id main_clk
 
 	# Classic Timing Assignments
 	# ==========================
-set_global_assignment -name FMAX_REQUIREMENT "20 ns" -section_id ram_clk
+set_global_assignment -name FMAX_REQUIREMENT "10 ns" -section_id ram_clk
 
 # end CLOCK(ram_clk)
 # ------------------
 
-# --------------------------------------------
-# start ENTITY(block-instruction-cache-loader)
-
-# end ENTITY(block-instruction-cache-loader)
-# ------------------------------------------
-
-# -----------------------------------------
-# start ENTITY(block-operation-variant-srl)
+# -----------------------------
+# start ENTITY(microcontroller)
 
 	# start LOGICLOCK_REGION(Root Region)
 	# -----------------------------------
@@ -124,54 +132,25 @@ set_global_assignment -name FMAX_REQUIREMENT "20 ns" -section_id ram_clk
 	# end DESIGN_PARTITION(Top)
 	# -------------------------
 
-# end ENTITY(block-operation-variant-srl)
-# ---------------------------------------
-
-# -----------------------
-# start ENTITY(block-ram)
-
-# end ENTITY(block-ram)
-# ---------------------
-
-# -------------------------
-# start ENTITY(block-stack)
-
-# end ENTITY(block-stack)
-# -----------------------
-
-# -----------------------------
-# start ENTITY(microcontroller)
-
-	# start LOGICLOCK_REGION(Root Region)
-	# -----------------------------------
-
-		# LogicLock Region Assignments
-		# ============================
-set_global_assignment -name LL_ROOT_REGION ON -entity microcontroller -section_id "Root Region"
-set_global_assignment -name LL_MEMBER_STATE LOCKED -entity microcontroller -section_id "Root Region"
-
-	# end LOGICLOCK_REGION(Root Region)
-	# ---------------------------------
-
 # end ENTITY(microcontroller)
 # ---------------------------
-set_global_assignment -name VECTOR_COMPARE_TRIGGER_MODE INPUT_EDGE
-set_global_assignment -name SEARCH_PATH blocks
-set_global_assignment -name SEARCH_PATH megafunctions
-set_global_assignment -name SEARCH_PATH "test-blocks"
-set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING ON
-set_global_assignment -name ENABLE_SIGNALTAP OFF
-set_global_assignment -name ENABLE_DA_RULE "C101, C102, C103, C104, C105, C106, R101, R102, R103, R104, R105, T101, T102, A101, A102, A103, A104, A105, A106, A107, A108, S101, S102, S103, S104, D101, D102, D103, M101, M102, M103, M104, M105"
-set_global_assignment -name ADV_NETLIST_OPT_SYNTH_WYSIWYG_REMAP ON
 set_global_assignment -name BDF_FILE microcontroller.bdf
 set_global_assignment -name BDF_FILE "blocks/block-bus-arbiter-unit.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-cache-entry.bdf"
+set_global_assignment -name BDF_FILE "blocks/block-control-commands.bdf"
+set_global_assignment -name BDF_FILE "blocks/block-control-state-machine.bdf"
+set_global_assignment -name BDF_FILE "blocks/block-cpu.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-data-cache.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-data-cache-line.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-data-cache-reader.bdf"
+set_global_assignment -name BDF_FILE "blocks/block-data-cache-set.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-data-cache-writer.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-data-cache-state-machine-main.bdf"
+set_global_assignment -name BDF_FILE "blocks/block-data-cache-state-machine-rm.bdf"
+set_global_assignment -name BDF_FILE "blocks/block-data-cache-state-machine-wh.bdf"
+set_global_assignment -name BDF_FILE "blocks/block-data-cache-state-machine-wm.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-instruction-cache-loader.bdf"
+set_global_assignment -name BDF_FILE "blocks/block-instruction-registers.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-operation-executor.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-operation-variant-and.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-operation-variant-notz.bdf"
@@ -183,12 +162,23 @@ set_global_assignment -name BDF_FILE "blocks/block-rom.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-register-16.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-register-file.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-stack.bdf"
+set_global_assignment -name BDF_FILE "blocks/block-stage-data-read.bdf"
+set_global_assignment -name BDF_FILE "blocks/block-stage-data-write.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-stage-execution.bdf"
+set_global_assignment -name BDF_FILE "blocks/block-stage-instruction-fetch.bdf"
+set_global_assignment -name BDF_FILE "blocks/block-writer-variant-stack-push.bdf"
+set_global_assignment -name BDF_FILE "blocks/block-writer-variant-write-to-reg.bdf"
+set_global_assignment -name BDF_FILE "blocks/block-writer-variant-pass.bdf"
+set_global_assignment -name BDF_FILE "blocks/block-writer-variant-write-to-ram.bdf"
+set_global_assignment -name BDF_FILE "blocks/block-writer-variant-stack-pop.bdf"
 set_global_assignment -name BDF_FILE "test-blocks/test-block-bus-arbiter-unit.bdf"
 set_global_assignment -name BDF_FILE "test-blocks/test-block-instruction-cache-loader.bdf"
+set_global_assignment -name BDF_FILE "test-blocks/test-block-data-cache.bdf"
 set_global_assignment -name HEX_FILE "memory-data/memory-rom.hex"
 set_global_assignment -name HEX_FILE "memory-data/memory-ram.hex"
+set_global_assignment -name MIF_FILE "memory-data/memory-commands.mif"
 set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-cache-entry.vwf"
+set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-data-cache.vwf"
 set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-data-cache-line.vwf"
 set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-data-cache-reader.vwf"
 set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-data-cache-writer.vwf"
@@ -199,6 +189,7 @@ set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-register-16.vw
 set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-register-file.vwf"
 set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-stack.vwf"
 set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-stage-execution.vwf"
+set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-data-cache-state-machine-main.vwf"
 set_global_assignment -name VECTOR_WAVEFORM_FILE "test-waveforms/test-block-bus-arbiter-unit.vwf"
 set_global_assignment -name VECTOR_WAVEFORM_FILE "test-waveforms/test-block-instruction-cache-loader.vwf"
 set_global_assignment -name QIP_FILE megafunctions/element_add_16.qip
@@ -230,6 +221,8 @@ set_global_assignment -name QIP_FILE megafunctions/element_gate_uni_4.qip
 set_global_assignment -name QIP_FILE megafunctions/element_gate_uni_8.qip
 set_global_assignment -name QIP_FILE megafunctions/element_gate_uni_16.qip
 set_global_assignment -name QIP_FILE megafunctions/element_inv_16.qip
+set_global_assignment -name QIP_FILE megafunctions/element_mux_1x2.qip
+set_global_assignment -name QIP_FILE megafunctions/element_mux_1x6.qip
 set_global_assignment -name QIP_FILE megafunctions/element_mux_16x6.qip
 set_global_assignment -name QIP_FILE megafunctions/element_mux_16x2.qip
 set_global_assignment -name QIP_FILE megafunctions/element_mux_16x9.qip
@@ -240,25 +233,29 @@ set_global_assignment -name QIP_FILE megafunctions/element_rom_8x4096.qip
 set_global_assignment -name QIP_FILE megafunctions/element_mux_8x2.qip
 set_global_assignment -name QIP_FILE megafunctions/element_mux_4x2.qip
 set_global_assignment -name QIP_FILE megafunctions/element_mux_2x2.qip
-set_global_assignment -name QIP_FILE megafunctions/element_mux_1x2.qip
-set_global_assignment -name QIP_FILE megafunctions/element_mux_1x6.qip
-set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-data-cache-state-machine-main.vwf"
 set_global_assignment -name QIP_FILE megafunctions/element_decode_3to8.qip
 set_global_assignment -name QIP_FILE megafunctions/element_mux_16x8.qip
 set_global_assignment -name QIP_FILE megafunctions/element_mux_1x8.qip
-set_global_assignment -name BDF_FILE "blocks/block-data-cache-set.bdf"
-set_global_assignment -name BDF_FILE "blocks/block-data-cache-state-machine-rm.bdf"
 set_global_assignment -name QIP_FILE megafunctions/element_mux_32x2.qip
-set_global_assignment -name BDF_FILE "blocks/block-data-cache-state-machine-wh.bdf"
-set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-data-cache.vwf"
 set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-data-cache-state-machine-rm.vwf"
-set_global_assignment -name BDF_FILE "test-blocks/test-block-data-cache.bdf"
 set_global_assignment -name VECTOR_WAVEFORM_FILE "test-waveforms/test-block-data-cache.vwf"
 set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-data-cache-state-machine-wh.vwf"
+set_global_assignment -name QIP_FILE megafunctions/element_ff_d_32.qip
+set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-stage-data-read.vwf"
+set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-writer-variant-stack-push.vwf"
+set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-writer-variant-write-to-ram.vwf"
+set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-writer-variant-stack-pop.vwf"
+set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-stage-data-write.vwf"
+set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-control-state-machine.vwf"
+set_global_assignment -name QIP_FILE megafunctions/element_rom_13x16.qip
+set_global_assignment -name VECTOR_WAVEFORM_FILE megafunctions/block_cpu.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE waveforms/microcontroller.vwf
+set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-data-cache-state-machine-wm.vwf"
+set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-stage-instruction-fetch.vwf"
 set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
 set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL COMPATIBLE_PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE "waveforms/block-data-cache.vwf"
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE waveforms/microcontroller.vwf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

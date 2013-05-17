@@ -1200,31 +1200,6 @@ applicable agreement for further details.
 	(flipx)
 )
 (symbol
-	(rect 680 176 728 208)
-	(text "NOT" (rect 1 0 21 10)(font "Arial" (font_size 6)))
-	(text "inst25" (rect 3 21 32 33)(font "Arial" ))
-	(port
-		(pt 0 16)
-		(input)
-		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
-		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
-		(line (pt 0 16)(pt 13 16)(line_width 1))
-	)
-	(port
-		(pt 48 16)
-		(output)
-		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
-		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
-		(line (pt 39 16)(pt 48 16)(line_width 1))
-	)
-	(drawing
-		(line (pt 13 25)(pt 13 7)(line_width 1))
-		(line (pt 13 7)(pt 31 16)(line_width 1))
-		(line (pt 13 25)(pt 31 16)(line_width 1))
-		(circle (rect 31 12 39 20)(line_width 1))
-	)
-)
-(symbol
 	(rect 584 360 648 408)
 	(text "OR2" (rect 1 0 19 10)(font "Arial" (font_size 6)))
 	(text "inst42" (rect 3 37 32 49)(font "Arial" ))
@@ -1255,6 +1230,31 @@ applicable agreement for further details.
 		(arc (pt 7 29)(pt 7 19)(rect -14 8 19 41)(line_width 1))
 		(arc (pt 49 24)(pt 25 13)(rect -6 13 57 76)(line_width 1))
 		(arc (pt 25 35)(pt 49 24)(rect -6 -27 57 36)(line_width 1))
+	)
+)
+(symbol
+	(rect 488 192 536 224)
+	(text "NOT" (rect 1 0 21 10)(font "Arial" (font_size 6)))
+	(text "inst25" (rect 3 21 32 33)(font "Arial" ))
+	(port
+		(pt 0 16)
+		(input)
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(text "IN" (rect 2 7 13 19)(font "Courier New" (bold))(invisible))
+		(line (pt 0 16)(pt 13 16)(line_width 1))
+	)
+	(port
+		(pt 48 16)
+		(output)
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(text "OUT" (rect 32 7 49 19)(font "Courier New" (bold))(invisible))
+		(line (pt 39 16)(pt 48 16)(line_width 1))
+	)
+	(drawing
+		(line (pt 13 25)(pt 13 7)(line_width 1))
+		(line (pt 13 7)(pt 31 16)(line_width 1))
+		(line (pt 13 25)(pt 31 16)(line_width 1))
+		(circle (rect 31 12 39 20)(line_width 1))
 	)
 )
 (connector
@@ -1964,27 +1964,11 @@ applicable agreement for further details.
 )
 (connector
 	(pt 1000 192)
-	(pt 728 192)
-)
-(connector
-	(pt 1000 192)
 	(pt 1000 312)
 )
 (connector
 	(pt 1000 312)
 	(pt 1000 408)
-)
-(connector
-	(pt 536 192)
-	(pt 536 352)
-)
-(connector
-	(pt 232 192)
-	(pt 536 192)
-)
-(connector
-	(pt 536 192)
-	(pt 680 192)
 )
 (connector
 	(pt 1016 160)
@@ -2000,6 +1984,26 @@ applicable agreement for further details.
 	(pt 232 160)
 	(pt 1016 160)
 	(bus)
+)
+(connector
+	(pt 536 208)
+	(pt 536 352)
+)
+(connector
+	(pt 488 208)
+	(pt 472 208)
+)
+(connector
+	(pt 472 208)
+	(pt 472 192)
+)
+(connector
+	(pt 232 192)
+	(pt 472 192)
+)
+(connector
+	(pt 472 192)
+	(pt 1000 192)
 )
 (junction (pt 1016 968))
 (junction (pt 904 1008))
@@ -2034,5 +2038,5 @@ applicable agreement for further details.
 (junction (pt 824 360))
 (junction (pt 840 224))
 (junction (pt 1496 240))
-(junction (pt 536 192))
+(junction (pt 472 192))
 (text "Stack block" (rect 64 120 193 146)(font "ubuntu" (font_size 16)))
