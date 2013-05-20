@@ -1148,4 +1148,3 @@ applicable agreement for further details.
 (junction (pt 240 616))
 (junction (pt 392 712))
 (junction (pt 256 304))
-(text "Bus arbiter unit" (rect 56 184 230 210)(font "Ubuntu" (font_size 16)))
