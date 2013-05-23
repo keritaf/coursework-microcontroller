@@ -134,6 +134,59 @@ set_global_assignment -name FMAX_REQUIREMENT "10 ns" -section_id ram_clk
 
 # end ENTITY(microcontroller)
 # ---------------------------
+set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
+set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL COMPATIBLE_PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE waveforms/microcontroller.vwf
+set_global_assignment -name AHDL_FILE megafunctions/element_add_16.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_and_16x2.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_compare_eq_2.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_compare_eq_3.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_mux_16x8.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_mux_16x9.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_mux_16x12.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_mux_16x16.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_mux_32x2.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_ram_8x4096.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_rom_13x16.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_shift_16.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_sub_16.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_compare_eq_11.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_compare_eq_16.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_compare_gte_3.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_const_0x14.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_counter_0to3.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_counter_0to7.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_counter_0to9.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_decode_2to4.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_decode_3to8.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_decode_4to16.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_ff_3.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_ff_d_1.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_ff_d_2.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_ff_d_4.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_ff_d_8.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_ff_d_11.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_ff_d_12.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_ff_d_16.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_ff_d_32.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_gate_bi_8.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_gate_uni_1.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_gate_uni_4.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_gate_uni_16.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_inv_16.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_mux_1x2.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_mux_1x5.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_mux_1x6.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_mux_1x8.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_mux_2x2.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_mux_4x2.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_mux_8x2.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_mux_16x2.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_mux_16x5.tdf
+set_global_assignment -name AHDL_FILE megafunctions/element_mux_16x6.tdf
 set_global_assignment -name BDF_FILE microcontroller.bdf
 set_global_assignment -name BDF_FILE "blocks/block-bus-arbiter-unit.bdf"
 set_global_assignment -name BDF_FILE "blocks/block-cache-entry.bdf"
@@ -253,10 +306,4 @@ set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-data-cache-sta
 set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-stage-instruction-fetch.vwf"
 set_global_assignment -name QIP_FILE megafunctions/element_shift_16.qip
 set_global_assignment -name VECTOR_WAVEFORM_FILE "waveforms/block-cpu.vwf"
-set_global_assignment -name LL_ROOT_REGION ON -section_id "Root Region"
-set_global_assignment -name LL_MEMBER_STATE LOCKED -section_id "Root Region"
-set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
-set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL COMPATIBLE_PLACEMENT_AND_ROUTING -section_id Top
-set_global_assignment -name INCREMENTAL_VECTOR_INPUT_SOURCE waveforms/microcontroller.vwf
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
