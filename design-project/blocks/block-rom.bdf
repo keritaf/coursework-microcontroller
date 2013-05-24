@@ -248,4 +248,3 @@ applicable agreement for further details.
 )
 (junction (pt 200 160))
 (junction (pt 200 48))
-(text "ROM block" (rect -16 -16 107 10)(font "Ubuntu" (font_size 16)))

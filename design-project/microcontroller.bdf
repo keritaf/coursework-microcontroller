@@ -22,7 +22,7 @@ applicable agreement for further details.
 (header "graphic" (version "1.3"))
 (pin
 	(input)
-	(rect 24 448 192 464)
+	(rect 32 408 200 424)
 	(text "INPUT" (rect 133 0 161 10)(font "Arial" (font_size 6)))
 	(text "CLK" (rect 5 0 26 12)(font "Arial" ))
 	(pt 168 8)
@@ -198,7 +198,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 928 376 1104 392)
+	(rect 928 392 1104 408)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "RAM_WR" (rect 90 0 138 12)(font "Arial" ))
 	(pt 0 8)
@@ -390,7 +390,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 48 384 224 400)
+	(rect 72 192 248 208)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "D_BUS_REQ" (rect 90 0 156 12)(font "Arial" ))
 	(pt 0 8)
@@ -406,7 +406,7 @@ applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 368 400 544 416)
+	(rect 336 472 512 488)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "D_BUS_GR" (rect 90 0 149 12)(font "Arial" ))
 	(pt 0 8)
@@ -595,7 +595,7 @@ applicable agreement for further details.
 	(annotation_block (parameter)(rect 776 688 888 736))
 )
 (symbol
-	(rect 1136 80 1248 128)
+	(rect 944 128 1056 176)
 	(text "LPM_CONSTANT" (rect -13 0 108 16)(font "Arial" (font_size 10)))
 	(text "inst4" (rect 86 37 109 49)(font "Arial" ))
 	(port
@@ -624,7 +624,7 @@ applicable agreement for further details.
 		(line (pt 96 40)(pt 96 24)(line_width 1))
 	)
 	(flipy)
-	(annotation_block (parameter)(rect 1136 128 1248 176))
+	(annotation_block (parameter)(rect 944 176 1056 224))
 )
 (symbol
 	(rect 368 -56 640 360)
@@ -974,22 +974,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 928 384)
-	(pt 912 384)
-)
-(connector
-	(pt 912 384)
-	(pt 912 464)
-)
-(connector
-	(pt 760 464)
-	(pt 912 464)
-)
-(connector
-	(pt 912 464)
-	(pt 928 464)
-)
-(connector
 	(pt 640 264)
 	(pt 776 264)
 )
@@ -1090,11 +1074,6 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 912 112)
-	(pt 912 72)
-	(bus)
-)
-(connector
 	(pt 688 -88)
 	(pt 736 -88)
 	(bus)
@@ -1123,26 +1102,13 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 912 112)
-	(pt 1136 112)
-	(bus)
-)
-(connector
 	(pt 656 120)
 	(pt 640 120)
 	(bus)
 )
 (connector
-	(pt 336 424)
-	(pt 16 424)
-)
-(connector
 	(pt 16 264)
 	(pt 64 264)
-)
-(connector
-	(pt 16 424)
-	(pt 16 264)
 )
 (connector
 	(pt 32 280)
@@ -1221,24 +1187,12 @@ applicable agreement for further details.
 	(pt 744 720)
 )
 (connector
-	(pt 336 -24)
-	(pt 336 424)
-)
-(connector
-	(pt 336 424)
-	(pt 336 456)
-)
-(connector
 	(pt 288 264)
 	(pt 320 264)
 )
 (connector
 	(pt 288 280)
 	(pt 304 280)
-)
-(connector
-	(pt 192 456)
-	(pt 336 456)
 )
 (connector
 	(pt 320 8)
@@ -1260,20 +1214,40 @@ applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 48 392)
-	(pt 32 392)
+	(pt 32 200)
+	(pt 72 200)
+)
+(connector
+	(pt 32 200)
+	(pt 32 280)
 )
 (connector
 	(pt 32 280)
 	(pt 32 376)
 )
 (connector
-	(pt 32 376)
-	(pt 32 392)
+	(pt 336 392)
+	(pt 16 392)
 )
 (connector
-	(pt 368 408)
-	(pt 320 408)
+	(pt 16 264)
+	(pt 16 392)
+)
+(connector
+	(pt 336 416)
+	(pt 200 416)
+)
+(connector
+	(pt 336 -24)
+	(pt 336 392)
+)
+(connector
+	(pt 336 392)
+	(pt 336 416)
+)
+(connector
+	(pt 320 480)
+	(pt 336 480)
 )
 (connector
 	(pt 320 24)
@@ -1281,7 +1255,33 @@ applicable agreement for further details.
 )
 (connector
 	(pt 320 264)
-	(pt 320 408)
+	(pt 320 480)
+)
+(connector
+	(pt 912 400)
+	(pt 928 400)
+)
+(connector
+	(pt 912 464)
+	(pt 912 400)
+)
+(connector
+	(pt 760 464)
+	(pt 912 464)
+)
+(connector
+	(pt 912 464)
+	(pt 928 464)
+)
+(connector
+	(pt 912 72)
+	(pt 912 160)
+	(bus)
+)
+(connector
+	(pt 912 160)
+	(pt 944 160)
+	(bus)
 )
 (junction (pt 744 560))
 (junction (pt 712 576))
@@ -1292,7 +1292,6 @@ applicable agreement for further details.
 (junction (pt 880 576))
 (junction (pt 912 464))
 (junction (pt 688 40))
-(junction (pt 336 424))
-(junction (pt 32 376))
 (junction (pt 320 264))
-(text "Microcontroller block" (rect -16 -80 231 -54)(font "Ubuntu" (font_size 16)))
+(junction (pt 32 280))
+(junction (pt 336 392))
